@@ -1,7 +1,9 @@
 {
   "resources": [
+    {"id":{"name":"s_ladder","path":"sprites/s_ladder/s_ladder.yy",},"order":5,},
     {"id":{"name":"s_walk","path":"sprites/s_walk/s_walk.yy",},"order":1,},
     {"id":{"name":"s_background_death","path":"sprites/s_background_death/s_background_death.yy",},"order":4,},
+    {"id":{"name":"o_climb","path":"objects/o_climb/o_climb.yy",},"order":1,},
     {"id":{"name":"s_climb","path":"sprites/s_climb/s_climb.yy",},"order":2,},
     {"id":{"name":"o_jugador","path":"objects/o_jugador/o_jugador.yy",},"order":0,},
     {"id":{"name":"s_idle","path":"sprites/s_idle/s_idle.yy",},"order":0,},

@@ -6,6 +6,7 @@ Input_right = keyboard_check(vk_right);
 Input_up = keyboard_check(vk_up);
 Input_down = keyboard_check(vk_down);
 input_run = keyboard_check(vk_shift);
+Input_space = keyboard_check(vk_space);
 
 #region MOVIMIENTOS
 
@@ -31,6 +32,29 @@ else
 // En caso de querer tener siempre un resultado positivo, usar "abs" que entrega el absoluto de un valor.
 
 MoveX = ( Input_right  - Input_left ) * spd;
+
+///ESCALAR
+if (Input_up || Input_down)
+{
+	if(place_meeting(x, y + Input_down, o_climb))
+    {
+		MoveY = ( Input_down  - Input_up ) * spd;	
+	}	
+}
+
+///SALTO
+if (Input_space)
+{
+	if (input_run)
+	{
+		spd = 4*-2;
+	}
+	else
+	{
+		spd = 2*-2;
+	}
+	MoveY = spd;
+}
 
 
 /// SE ACTUALIZAN LOS SPRITES Y LUEGO LA POSICION ///
