@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"o_enemy1","path":"objects/o_enemy1/o_enemy1.yy",},"order":2,},
     {"id":{"name":"s_ladder","path":"sprites/s_ladder/s_ladder.yy",},"order":5,},
     {"id":{"name":"s_walk","path":"sprites/s_walk/s_walk.yy",},"order":1,},
     {"id":{"name":"s_background_death","path":"sprites/s_background_death/s_background_death.yy",},"order":4,},
@@ -7,7 +8,9 @@
     {"id":{"name":"s_climb","path":"sprites/s_climb/s_climb.yy",},"order":2,},
     {"id":{"name":"o_jugador","path":"objects/o_jugador/o_jugador.yy",},"order":0,},
     {"id":{"name":"s_idle","path":"sprites/s_idle/s_idle.yy",},"order":0,},
+    {"id":{"name":"o_turningpoint","path":"objects/o_turningpoint/o_turningpoint.yy",},"order":3,},
     {"id":{"name":"s_background","path":"sprites/s_background/s_background.yy",},"order":3,},
+    {"id":{"name":"s_enemy1","path":"sprites/s_enemy1/s_enemy1.yy",},"order":6,},
     {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":0,},
   ],
   "Options": [
