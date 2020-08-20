@@ -1,6 +1,8 @@
 {
   "resources": [
     {"id":{"name":"o_plataform2","path":"objects/o_plataform2/o_plataform2.yy",},"order":1,},
+    {"id":{"name":"s_honey","path":"sprites/s_honey/s_honey.yy",},"order":16,},
+    {"id":{"name":"o_honey","path":"objects/o_honey/o_honey.yy",},"order":7,},
     {"id":{"name":"o_enemy1","path":"objects/o_enemy1/o_enemy1.yy",},"order":2,},
     {"id":{"name":"s_floor","path":"sprites/s_floor/s_floor.yy",},"order":11,},
     {"id":{"name":"s_ladder","path":"sprites/s_ladder/s_ladder.yy",},"order":5,},
