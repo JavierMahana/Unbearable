@@ -45,10 +45,12 @@ if (Input_up || Input_down)
 	if(place_meeting(x, y + Input_down, o_climb))
     {
 		MoveY = (Input_down  - Input_up )* global.spd;
-		if(!global.jump)
+		if(global.jump)
 		{
-			phy_linear_velocity_y = 0;
+			global.jump = false;
 		}
+		phy_linear_velocity_y = 0;
+		global.spd = 0;
 	}	
 }
 
