@@ -21,6 +21,7 @@
     {"id":{"name":"s_plataform3","path":"sprites/s_plataform3/s_plataform3.yy",},"order":9,},
     {"id":{"name":"s_wall","path":"sprites/s_wall/s_wall.yy",},"order":12,},
     {"id":{"name":"o_plataform4","path":"objects/o_plataform4/o_plataform4.yy",},"order":3,},
+    {"id":{"name":"o_checkpoint","path":"objects/o_checkpoint/o_checkpoint.yy",},"order":8,},
     {"id":{"name":"s_plataform4","path":"sprites/s_plataform4/s_plataform4.yy",},"order":10,},
     {"id":{"name":"o_plataform3","path":"objects/o_plataform3/o_plataform3.yy",},"order":2,},
     {"id":{"name":"s_idle","path":"sprites/s_idle/s_idle.yy",},"order":0,},

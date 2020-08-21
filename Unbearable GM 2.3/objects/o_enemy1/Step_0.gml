@@ -16,6 +16,7 @@ else if(enemy1vuelta == false)
 	image_xscale = -1;
 }
 
+///Dañar al Jugador
 if(instance_place(x, y, o_jugador) and global.invencibilidad == false)
 {
 	global.HP --;
@@ -24,4 +25,11 @@ if(instance_place(x, y, o_jugador) and global.invencibilidad == false)
 else if(not instance_place(x, y, o_jugador) and global.invencibilidad == true)
 {
 	global.invencibilidad = false;
+}
+
+
+///A mimir
+if((instance_place(x+30, y, o_jugador) or(instance_place(x-30, y, o_jugador))) and global.atacando)
+{
+	instance_deactivate_object(self);
 }
