@@ -7,14 +7,8 @@ Input_up = keyboard_check(vk_up);
 Input_down = keyboard_check(vk_down);
 input_run = keyboard_check(vk_shift);
 Input_space = keyboard_check(vk_space);
-input_debug = keyboard_check_pressed(vk_enter);
+//input_debug = keyboard_check_pressed(vk_enter);
 //DEBUGS
-if (input_debug)
-{
-	show_debug_message(phy_linear_velocity_y );
-}
-
-
 
 #region MOVIMIENTOS
 
@@ -23,35 +17,33 @@ if (input_debug)
 MoveX = 0;
 MoveY = 0;
 
-
 /// MOVIMIENTO ///
 
 ///CORRER O CAMINAR
 
-if (input_run)// && !global.jump)
+if (input_run)
 {
-	global.spd = 4;
-
+	spd = 4;
+	image_speed = 2;
 }
 else 
 {
-	global.spd = 2;
+	spd = 2;
+	image_speed = 1;
 }
 
-MoveX = ( Input_right  - Input_left ) * global.spd;
+MoveX = ( Input_right  - Input_left ) * spd;
 
 ///ESCALAR
 if (Input_up || Input_down)
 {
 	if(place_meeting(x, y + Input_down, o_climb))
     {
-		MoveY = (Input_down  - Input_up )* global.spd;
+		MoveY = (Input_down  - Input_up )* spd;
 		if(global.jump)
 		{
 			global.jump = false;
 		}
-		phy_linear_velocity_y = 0;
-		global.spd = 0;
 	}	
 }
 
@@ -60,39 +52,55 @@ if (Input_space && !global.jump)
 {
 	global.jump = true;
 }
-
+/*
 if (global.jump)
 {
-	if (global.spd>=4)
+	if (spd>=4)
 	{
-		global.spd = 2.5;
+		spd = 2.5;
 	}
-	global.spd *= 2.5;
-	MoveY = -global.spd;	
+	spd *= 2.5;
+	MoveY = -spd;	
 }
+*/
 
-
-
-
-
-//manejo de ataque
-if(atacando)
+//ATAQUES
+if(global.atacando)
 {
-	contadorAtaque++;
-	if(contadorAtaque >= framesDeAtaque)
+	///MALETA
+	if(global.melee)
 	{
-		atacando = false;
-		contadorAtaque = 0;
-	}
+		contadorAtaque++;
+		if(contadorAtaque >= framesMelee)
+		{
+			global.atacando = false;
+			global.melee = false;
+			contadorAtaque = 0;
+		}
+	}	
+	///ROLL
+	if(roll)
+	{
+		image_speed = 0.8;
+		contadorAtaque++;
+		x += rollspd;
+		if(contadorAtaque >= framesRoll)
+		{
+			global.atacando = false;
+			roll = false;
+			rollspd = 0;
+			contadorAtaque = 0;
+			
+		}
+	}	
+	
 }
-
-
 
 /// SE ACTUALIZAN LOS SPRITES Y LUEGO LA POSICION ///
 #region Sprites Para movimientos
 
  ///SPRITES PARA CAMINAR
-if(global.spd && MoveX != 0 && !atacando)
+if(spd && MoveX != 0 && !global.atacando)
 {
 	sprite_index = s_walk;
 	if(MoveX > 0)
@@ -108,8 +116,8 @@ if(global.spd && MoveX != 0 && !atacando)
 	 
 }
  ///SPIRTES AL ESTAR QUIETO
-if(!Input_up && !Input_left && !Input_right && !Input_space && !atacando)
-{
+if(!Input_up && !Input_left && !Input_right && !Input_space && !global.atacando)
+{		
 	sprite_index = s_idle;	
 	if(idle = 0)
 	{
@@ -119,20 +127,22 @@ if(!Input_up && !Input_left && !Input_right && !Input_space && !atacando)
 	{
 		image_xscale = 1;
 	}
-	 
+	if(place_meeting(x, bbox_top, o_climb) &&  place_meeting(x, bbox_bottom+20, o_climb) )
+	{
+		sprite_index = s_climb;	
+		image_speed = 0;
+	}
 }
  ///SPRITE ESCALAR
-if(    (place_meeting(x, y - 2, o_climb) || place_meeting(x, y + 2, o_climb)) &&  (Input_up || Input_down) && !atacando)
+if(    (place_meeting(x, y - 2, o_climb) || place_meeting(x, y + 2, o_climb)) &&  (Input_up || Input_down) && !global.atacando)
 {
 	sprite_index = s_climb;	
+	image_speed = 2;
 }
  
- 
- ///SPRITE RODAR
-
 
  ///SPRITE AL SALTAR
-if (Input_space && global.jump && !atacando)
+if (Input_space && global.jump && !global.atacando)
 {
 	sprite_index = s_jump;	
 	if(idle==1 || Input_right)
@@ -147,65 +157,12 @@ if (Input_space && global.jump && !atacando)
 
 #endregion
 
-///ACTUALIZAR LAS COORDENADAS DEL OBJETO
-phy_position_x += MoveX;
-phy_position_y += MoveY;
 ///ACTUALIZAR LA POSICION DEL OBJETO
-phy_fixed_rotation = 1;
-
-
-#endregion
-
-
-////////////////////////////////////////////////////////////////////////
-//COLISIONES PRECISAS
-#region
-/*
-
-/// REVISAR COLISIONES CON MUROS ///
-
-//sign devuelve el valor 1 o 0 de MoveX
-if(place_meeting( x+MoveX, y, obj_wall)) && (MoveX!=0) // Colision Horizontal
+if(!global.atacando)
 {
-	repeat(abs(MoveX)) //Repite mientras el valor de MoveX sea absoluto
-	{
-		//Si aún no hay colision en x + sign
-		//sign es el valor del bool MoveX; 0 o 1;
-		//Si aun no hay colision suma 1, hasta que haya, en cuyo caso hace break
-		if(!place_meeting( x+sign(MoveX), y, obj_wall))
-		{
-			x+=sign(MoveX)
-		}
-		else
-		{
-			break;
-		}
-	}
-	
-	MoveX = 0;
+	x += MoveX;
+	y += MoveY;
 }
 
-if(place_meeting( x, y+MoveY, obj_wall)) && (MoveY!=0) // Colision Vertical
-{
-	repeat(abs(MoveY)) //Repite mientras el valor de MoveY sea absoluto
-	{
-		//Si aún no hay colision en y + sign
-		//sign es el valor del bool MoveY; 0 o 1;
-		//Si aun no hay colision suma 1, hasta que haya, en cuyo caso hace break
-		if(!place_meeting( x, y+sign(MoveY), obj_wall)) 
-		{
-			y+=sign(MoveY)
-		}
-		else
-		{
-			break;
-		}
-	}
-	
-	MoveY = 0;
-}
-
-
-*/
 #endregion
 

@@ -11,7 +11,7 @@
     "name": "o_tile",
     "path": "objects/o_tile/o_tile.yy",
   },
-  "physicsObject": true,
+  "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
   "physicsGroup": 0,

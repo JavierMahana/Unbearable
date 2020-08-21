@@ -5,11 +5,16 @@ idle = 1;
 ///bool que determina si ya se presionó el botón para saltar
 global.jump = false;
 //velocidades
-global.spd = 0;
+spd = 2;
+rollspd = 0;
 ///invencibilidad para el personaje si recibio daño recientemente
 global.invencibilidad = false;
-
-
-atacando = false;
-framesDeAtaque = 8;
+///ataque
+global.atacando = false;
+framesMelee = 8;
+framesRoll = 20;
 contadorAtaque = 0;
+roll = false;
+global.melee = false;
+global.attackright = false;
+global.attackleft = false;
