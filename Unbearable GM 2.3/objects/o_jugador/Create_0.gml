@@ -8,3 +8,8 @@ global.jump = false;
 global.spd = 0;
 ///invencibilidad para el personaje si recibio daño recientemente
 global.invencibilidad = false;
+
+
+atacando = false;
+framesDeAtaque = 8;
+contadorAtaque = 0;
