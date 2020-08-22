@@ -34,8 +34,10 @@ else
 
 MoveX = ( Input_right  - Input_left ) * spd;
 
-x = ManejarColisionesHorizontales(o_tile, MoveX);
-
+if(!roll)
+{
+	x = ManejarColisionesHorizontales(o_tile, MoveX);
+}
 ///ESCALAR
 if ( (Input_up && place_meeting(x, bbox_top, o_climb)) || (Input_down && place_meeting(x, bbox_bottom+1, o_climb)) )
 {
@@ -63,10 +65,19 @@ onGround = false;
 
 if(place_meeting(x,y + 1,o_tile) || escalar)
 {
-	onGround = true;
+	onGround = true;	
 	//show_debug_message("en el piso!");
 }
 
+//osea esta bajando
+if(verSpd > 0)
+{
+	//esta arriba y no dentro de una plataforma.
+	if(place_meeting(x,y + 1,o_tile2) && !place_meeting(x,y,o_tile2))
+	{
+		onGround = true;
+	}
+}
 
 
 if(onGround && Input_space)
@@ -100,7 +111,17 @@ else
 	verSpd = 0;
 }
 
-posY = ManejarColisionesVerticales(o_tile, verSpd + MoveY);
+//y = ColisionesConPlataformasDeUnLado(o_tile2, verSpd + MoveY);
+newY = ManejarColisionesVerticales(o_tile, verSpd + MoveY);
+if(verSpd > 0 && !escalar)
+{
+	if(! place_meeting(x,y, o_tile2) && place_meeting(x, newY, o_tile2))
+	{
+		newY = ManejarColisionesVerticales(o_tile2, newY - y);
+	}
+}
+y = newY;
+
 ///SALTO
 //if (Input_space && !global.jump)
 //{
@@ -214,15 +235,15 @@ if (Input_space && global.jump && !global.atacando)
 #endregion
 
 /// ACTUALIZAR LA POSICION DEL OBJETO ///
-if(!global.atacando)
-{
-	//x += MoveX;
-	y = posY;//MoveY 
-	//if(!escalar)
-	//{
-	//	y += global.gravedad;
-	//}
-}
+//if(!global.atacando)
+//{
+//	//x += MoveX;
+//	//y = posY;//MoveY 
+//	//if(!escalar)
+//	//{
+//	//	y += global.gravedad;
+//	//}
+//}
 
 
 
