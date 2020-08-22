@@ -9,7 +9,7 @@ function ManejarColisionesHorizontales(colliders, deltaX)
 	colObj = instance_place(posX, y, colliders);
 	if(colObj != noone)
 	{
-		dirX = sign(colObj.x - posX); 
+		dirX = -sign(colObj.x - posX); 
 		
 		while(place_meeting(posX, y, colliders))
 		{

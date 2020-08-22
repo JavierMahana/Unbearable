@@ -9,6 +9,14 @@ global.gravedad = 0;
 escalar = false;
 //velocidades
 spd = 2;
+jumpforce = 15;
+climbJumpForce = 8;
+verSpd = 0;
+gravityForce = 1;
+maxVerSpd = 15;
+
+onGround = false;
+
 rollspd = 0;
 ///invencibilidad para el personaje si recibio daño recientemente
 global.invencibilidad = false;
