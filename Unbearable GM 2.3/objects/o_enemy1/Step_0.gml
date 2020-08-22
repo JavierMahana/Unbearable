@@ -28,7 +28,7 @@ else if(not instance_place(x, y, o_jugador) and global.invencibilidad == true)
 }
 
 
-///A mimir
+///A mimir zzzz
 if((instance_place(x+30, y, o_jugador) or(instance_place(x-30, y, o_jugador))) and global.atacando)
 {
 	instance_deactivate_object(self);

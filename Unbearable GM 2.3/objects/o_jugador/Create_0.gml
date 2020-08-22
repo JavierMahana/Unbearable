@@ -5,6 +5,8 @@ vidas = 3;
 idle = 1;
 ///bool que determina si ya se presionó el botón para saltar
 global.jump = false;
+global.gravedad = 0;
+escalar = false;
 //velocidades
 spd = 2;
 rollspd = 0;

@@ -23,28 +23,35 @@ MoveY = 0;
 
 if (input_run)
 {
-	spd = 4;
+	spd = 5;
 	image_speed = 2;
 }
 else 
 {
-	spd = 2;
+	spd = 2.5;
 	image_speed = 1;
 }
 
 MoveX = ( Input_right  - Input_left ) * spd;
 
 ///ESCALAR
-if (Input_up || Input_down)
+if ( (Input_up && place_meeting(x, bbox_top, o_climb)) || (Input_down && place_meeting(x, bbox_bottom+1, o_climb)) )
 {
-	if(place_meeting(x, y + Input_down, o_climb))
-    {
-		MoveY = (Input_down  - Input_up )* spd;
-		if(global.jump)
-		{
-			global.jump = false;
-		}
+	escalar = true;
+}
+
+if (escalar)
+{
+	MoveY = (Input_down  - Input_up )* spd;
+	if(global.jump)
+	{
+		global.jump = false;
 	}	
+}
+
+if(!place_meeting(x, y, o_climb))
+{
+	escalar = false;
 }
 
 ///SALTO
@@ -52,17 +59,12 @@ if (Input_space && !global.jump)
 {
 	global.jump = true;
 }
-/*
-if (global.jump)
+
+if (global.jump && Input_space)
 {
-	if (spd>=4)
-	{
-		spd = 2.5;
-	}
-	spd *= 2.5;
-	MoveY = -spd;	
+	MoveY += -spd * 2;	
 }
-*/
+
 
 //ATAQUES
 if(global.atacando)
@@ -96,11 +98,11 @@ if(global.atacando)
 	
 }
 
-/// SE ACTUALIZAN LOS SPRITES Y LUEGO LA POSICION ///
+/// SE ACTUALIZAN LOS SPRITES ///
 #region Sprites Para movimientos
 
  ///SPRITES PARA CAMINAR
-if(spd && MoveX != 0 && !global.atacando)
+if(spd && MoveX != 0 && !global.atacando && !escalar)
 {
 	sprite_index = s_walk;
 	if(MoveX > 0)
@@ -116,7 +118,7 @@ if(spd && MoveX != 0 && !global.atacando)
 	 
 }
  ///SPIRTES AL ESTAR QUIETO
-if(!Input_up && !Input_left && !Input_right && !Input_space && !global.atacando)
+if(!Input_up && !Input_left && !Input_right && !Input_space && !global.atacando && !escalar)
 {		
 	sprite_index = s_idle;	
 	if(idle = 0)
@@ -127,17 +129,19 @@ if(!Input_up && !Input_left && !Input_right && !Input_space && !global.atacando)
 	{
 		image_xscale = 1;
 	}
-	if(place_meeting(x, bbox_top, o_climb) &&  place_meeting(x, bbox_bottom+20, o_climb) )
-	{
-		sprite_index = s_climb;	
-		image_speed = 0;
-	}
+	
 }
+
  ///SPRITE ESCALAR
-if(    (place_meeting(x, y - 2, o_climb) || place_meeting(x, y + 2, o_climb)) &&  (Input_up || Input_down) && !global.atacando)
+if(    (place_meeting(x, y, o_climb)) &&  (Input_up || Input_down) && !global.atacando)
 {
 	sprite_index = s_climb;	
 	image_speed = 2;
+}
+if(place_meeting(x, y, o_climb) && escalar && (!Input_up && !Input_down))
+{
+	sprite_index = s_climb;	
+	image_speed = 0;
 }
  
 
@@ -157,11 +161,20 @@ if (Input_space && global.jump && !global.atacando)
 
 #endregion
 
-///ACTUALIZAR LA POSICION DEL OBJETO
+/// ACTUALIZAR LA POSICION DEL OBJETO ///
 if(!global.atacando)
 {
 	x += MoveX;
-	y += MoveY;
+	y += MoveY 
+	if(!escalar)
+	{
+		y += global.gravedad;
+	}
+}
+
+if(!place_meeting(x,bbox_bottom,o_tile) && !escalar)
+{
+	global.gravedad += 0.5;
 }
 
 #endregion

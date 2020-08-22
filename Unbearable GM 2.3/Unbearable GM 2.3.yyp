@@ -24,6 +24,7 @@
     {"id":{"name":"o_jugador","path":"objects/o_jugador/o_jugador.yy",},"order":0,},
     {"id":{"name":"Path1","path":"paths/Path1/Path1.yy",},"order":0,},
     {"id":{"name":"o_treeD4","path":"objects/o_treeD4/o_treeD4.yy",},"order":3,},
+    {"id":{"name":"o_tile2","path":"objects/o_tile2/o_tile2.yy",},"order":12,},
     {"id":{"name":"s_attack","path":"sprites/s_attack/s_attack.yy",},"order":14,},
     {"id":{"name":"o_tree3","path":"objects/o_tree3/o_tree3.yy",},"order":3,},
     {"id":{"name":"s_plataform3","path":"sprites/s_plataform3/s_plataform3.yy",},"order":9,},

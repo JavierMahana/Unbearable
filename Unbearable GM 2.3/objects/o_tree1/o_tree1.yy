@@ -7,7 +7,10 @@
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "o_tile2",
+    "path": "objects/o_tile2/o_tile2.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
