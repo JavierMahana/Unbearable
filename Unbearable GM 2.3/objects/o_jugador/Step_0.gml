@@ -47,10 +47,6 @@ if ( (Input_up && place_meeting(x, bbox_top, o_climb)) || (Input_down && place_m
 if (escalar)
 {
 	MoveY = (Input_down  - Input_up )* spd;
-	if(global.jump)
-	{
-		global.jump = false;
-	}	
 }
 
 if(!place_meeting(x, y, o_climb))
@@ -121,22 +117,6 @@ if(verSpd > 0 && !escalar)
 	}
 }
 y = newY;
-
-///SALTO
-//if (Input_space && !global.jump)
-//{
-//	global.jump = true;
-//}
-
-//if (global.jump && Input_space)
-//{
-//	MoveY += -spd * 2;	
-//}
-
-//if(!place_meeting(x,bbox_bottom,o_tile) && !escalar)
-//{
-//	global.gravedad += 0.5;
-//}
 
 
 //ATAQUES
@@ -219,7 +199,7 @@ if(place_meeting(x, y, o_climb) && escalar && (!Input_up && !Input_down))
  
 
  ///SPRITE AL SALTAR
-if (Input_space && global.jump && !global.atacando)
+if (Input_space && !onGround && !global.atacando)
 {
 	sprite_index = s_jump;	
 	if(idle==1 || Input_right)
@@ -233,18 +213,6 @@ if (Input_space && global.jump && !global.atacando)
 }
 
 #endregion
-
-/// ACTUALIZAR LA POSICION DEL OBJETO ///
-//if(!global.atacando)
-//{
-//	//x += MoveX;
-//	//y = posY;//MoveY 
-//	//if(!escalar)
-//	//{
-//	//	y += global.gravedad;
-//	//}
-//}
-
 
 
 #endregion

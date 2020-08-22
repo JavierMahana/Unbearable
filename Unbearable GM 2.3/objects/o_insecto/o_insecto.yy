@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "",
-    "path": "",
+    "name": "o_enemigos",
+    "path": "objects/o_enemigos/o_enemigos.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,17 +24,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_enemy1","path":"objects/o_enemy1/o_enemy1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"o_enemy1","path":"objects/o_enemy1/o_enemy1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_insecto","path":"objects/o_insecto/o_insecto.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objetos",
-    "path": "folders/Objetos.yy",
+    "name": "Enemigos",
+    "path": "folders/Objetos/Enemigos.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_enemy1",
+  "name": "o_insecto",
   "tags": [],
   "resourceType": "GMObject",
 }

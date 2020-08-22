@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objetos",
-    "path": "folders/Objetos.yy",
+    "name": "Atravesables",
+    "path": "folders/Objetos/Atravesables.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_climb",
