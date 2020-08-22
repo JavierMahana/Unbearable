@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Objetos",
+    "path": "folders/Objetos.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_enemy1",

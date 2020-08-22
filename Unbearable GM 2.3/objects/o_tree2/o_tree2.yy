@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "s_floor",
-    "path": "sprites/s_floor/s_floor.yy",
+    "name": "s_platform11",
+    "path": "sprites/s_platform11/s_platform11.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "o_block",
-    "path": "objects/o_block/o_block.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bloques",
-    "path": "folders/Objetos/Bloques.yy",
+    "name": "Atravesables",
+    "path": "folders/Objetos/Atravesables.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_floor",
+  "name": "o_tree2",
   "tags": [],
   "resourceType": "GMObject",
 }

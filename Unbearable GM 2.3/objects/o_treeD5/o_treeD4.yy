@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "s_wall",
-    "path": "sprites/s_wall/s_wall.yy",
+    "name": "Sprite26",
+    "path": "sprites/Sprite26/Sprite26.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "o_block",
-    "path": "objects/o_block/o_block.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bloques",
-    "path": "folders/Objetos/Bloques.yy",
+    "name": "Decoration",
+    "path": "folders/Objetos/Decoration.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_wall",
+  "name": "o_treeD4",
   "tags": [],
   "resourceType": "GMObject",
 }

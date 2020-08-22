@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "s_platform10",
+    "path": "sprites/s_platform10/s_platform10.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -21,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Bloques",
-    "path": "folders/Objetos/Bloques.yy",
+    "name": "Atravesables",
+    "path": "folders/Objetos/Atravesables.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_block2",
+  "name": "o_tree3",
   "tags": [],
   "resourceType": "GMObject",
 }
