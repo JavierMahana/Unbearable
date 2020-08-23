@@ -227,6 +227,7 @@ if((global.HP <= 0 or y > 900) and vidas > 1)
 }
 else if(global.HP <= 0 or y > 900)
 {
+	///Cambiar por algo
 	room_restart();
 }
 
@@ -236,4 +237,10 @@ if(x > 1650 and checkpoint1 == false)
 	o_checkpoint.x = x;
 	o_checkpoint.y = y;
 	checkpoint1 = true;
+}
+
+///GANAR
+if(x >= 2800)
+{
+	///Cambiar por algo
 }

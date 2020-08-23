@@ -24,6 +24,5 @@ framesRoll = 20;
 contadorAtaque = 0;
 roll = false;
 global.melee = false;
-
+///checkpoints
 checkpoint1 = false;
-checkpoint2 = false;
