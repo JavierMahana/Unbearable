@@ -218,21 +218,20 @@ if (Input_space && !onGround && !global.atacando)
 #endregion
 
 ///MORIR
-if(global.HP <= 0 and vidas > 1)
+if((global.HP <= 0 or y > 900) and vidas > 1)
 {
 	vidas --;
 	x = o_checkpoint.x;
 	y = o_checkpoint.y;
 	global.HP = 3;
 }
-else if(global.HP <= 0)
+else if(global.HP <= 0 or y > 900)
 {
 	room_restart();
 }
 
 ///ACTUALIZAR CHECKPOINT
-//Primer checkpoint
-if(x > 700 and checkpoint1 == false)
+if(x > 1650 and checkpoint1 == false)
 {
 	o_checkpoint.x = x;
 	o_checkpoint.y = y;
