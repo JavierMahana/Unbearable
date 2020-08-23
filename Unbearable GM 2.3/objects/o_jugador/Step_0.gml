@@ -34,7 +34,7 @@ else
 
 MoveX = ( Input_right  - Input_left ) * spd;
 
-if(!roll)
+if(!global.roll)
 {
 	x = ManejarColisionesHorizontales(o_tile, MoveX);
 }
@@ -130,11 +130,13 @@ if(global.atacando)
 		{
 			global.atacando = false;
 			global.melee = false;
+			global.ataquederecha = false;
+			global.ataqueizquierda = false;
 			contadorAtaque = 0;
 		}
 	}	
 	///ROLL
-	if(roll)
+	if(global.roll)
 	{
 		image_speed = 0.8;
 		contadorAtaque++;
@@ -142,7 +144,7 @@ if(global.atacando)
 		if(contadorAtaque >= framesRoll)
 		{
 			global.atacando = false;
-			roll = false;
+			global.roll = false;
 			rollspd = 0;
 			contadorAtaque = 0;
 			
@@ -218,29 +220,38 @@ if (Input_space && !onGround && !global.atacando)
 #endregion
 
 ///MORIR
-if((global.HP <= 0 or y > 900) and vidas > 1)
+if (global.HP <= 0 or y > 900) and vidas > 1 
 {
-	vidas --;
-	x = o_checkpoint.x;
-	y = o_checkpoint.y;
-	global.HP = 3;
+    if not checkpoint
+	{
+		vidas --;
+		x = o_start.x;
+		y = o_start.y;
+		global.HP = 3;
+	}
+	if checkpoint
+	{
+		vidas --;
+		x = o_checkpoint.x;
+		y = o_checkpoint.y;
+		global.HP = 3;
+	}
 }
-else if(global.HP <= 0 or y > 900)
+if vidas = 0 
 {
-	///Cambiar por algo
 	room_restart();
 }
 
 ///ACTUALIZAR CHECKPOINT
-if(x > 1650 and checkpoint1 == false)
+if place_meeting(x,y,o_checkpoint) and not checkpoint
 {
-	o_checkpoint.x = x;
-	o_checkpoint.y = y;
-	checkpoint1 = true;
+	checkpoint = true;	
 }
 
 ///GANAR
 if(x >= 2800)
 {
-	///Cambiar por algo
+	//AGREGAR
 }
+
+ 

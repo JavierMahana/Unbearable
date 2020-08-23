@@ -8,6 +8,13 @@ if(not instance_place(x,y,o_jugador))
 {
 	global.invencibilidad = false;
 }
+///Ser atacado por el jugador
+if ManejarAtaques()
+{
+	instance_destroy(self, true);
+}
+
+///REVISA LA ORIENTACION DEL SPRITE DEPENDIENDO SI TERMINO EL RECORRIDO DE SU RUTA
 if path_position = 1
 {
 	image_xscale = -1	
@@ -15,9 +22,4 @@ if path_position = 1
 if path_position = 0
 {
 	image_xscale = 1	
-}
-///Ser atacado por el jugador
-if (ManejarAtaques() or instance_place(x, y-34, o_jugador))
-{
-	instance_destroy(self,false);
 }

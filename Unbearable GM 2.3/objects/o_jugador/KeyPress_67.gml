@@ -1,8 +1,8 @@
 /// ROLL
-if (!global.melee && !roll)
+if (!global.melee && !global.roll)
 {
 	global.atacando = true;
-	roll = true;
+	global.roll = true;
 	sprite_index = s_roll;	
 	if(idle==1 || Input_right)
 	{

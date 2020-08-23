@@ -22,7 +22,9 @@ global.atacando = false;
 framesMelee = 8;
 framesRoll = 20;
 contadorAtaque = 0;
-roll = false;
+global.roll = false;
 global.melee = false;
+global.ataqueizquierda = false;
+global.ataquederecha = false;
 ///checkpoints
-checkpoint1 = false;
+checkpoint = false
