@@ -4,7 +4,6 @@ if (!global.melee && !global.roll)
 {
 	global.atacando = true;
 	global.melee = true;
-	
 	sprite_index = s_attack;	
 	if(idle==1 || Input_right)
 	{

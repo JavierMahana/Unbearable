@@ -29,4 +29,9 @@ global.melee = false;
 global.ataqueizquierda = false;
 global.ataquederecha = false;
 ///checkpoints
-checkpoint = false
+checkpoint = false;
+checkpointtime = false;
+///tiempos
+time = 0;
+timecheck = 0;
+timestore = get_timer()/1000000;

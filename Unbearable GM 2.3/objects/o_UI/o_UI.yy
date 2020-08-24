@@ -18,7 +18,7 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_vidaUI","path":"objects/o_vidaUI/o_vidaUI.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_UI","path":"objects/o_UI/o_UI.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -27,7 +27,7 @@
     "path": "folders/Objetos.yy",
   },
   "resourceVersion": "1.0",
-  "name": "o_vidaUI",
+  "name": "o_UI",
   "tags": [],
   "resourceType": "GMObject",
 }

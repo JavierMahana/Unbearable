@@ -8,8 +8,16 @@ function ManejarAtaques()
 		///retorna verdadero por ataque con maleta "X"
 		if global.melee
 		{
-			if (instance_place(bbox_right,y,o_jugador) and global.ataqueizquierda){return true;}
-			if (instance_place(bbox_left,y,o_jugador) and global.ataquederecha){return true;}
+			if (instance_place(bbox_right,y,o_jugador) and global.ataqueizquierda)
+			{
+				audio_play_sound(sfx_hit ,100,false);
+				return true;			
+			}
+			if (instance_place(bbox_left,y,o_jugador) and global.ataquederecha)
+			{
+				audio_play_sound(sfx_hit ,100,false);
+				return true;				
+			}
 		}
 	}
 	///retorna true si toca la parte inferior del jugador y no la superior "SALTO"

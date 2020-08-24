@@ -20,7 +20,6 @@ MoveY = 0;
 /// MOVIMIENTO ///
 
 ///CORRER O CAMINAR
-
 if (input_run)
 {
 	spd = 5;
@@ -85,6 +84,7 @@ if(onGround && Input_space)
 	else
 	{
 		verSpd = -jumpforce;
+		audio_play_sound(sfx_jump ,100,false);
 	}
 	
 	onGround = false;
@@ -236,6 +236,7 @@ if (global.HP <= 0 or y > 900)
 		x = o_start.x;
 		y = o_start.y;
 		global.HP = 3;
+		timestore = get_timer()/1000000;
 	}
 	if checkpoint
 	{
@@ -243,18 +244,24 @@ if (global.HP <= 0 or y > 900)
 		x = o_checkpoint.x;
 		y = o_checkpoint.y;
 		global.HP = 3;
+		timestore = get_timer()/1000000;
+		checkpointtime = true;
+
 	}
+	show_debug_message(vidas);
 }
 if (vidas <= 0) 
 {
-	//vidas  =3;
 	room_restart();
+	//AGREGAR?
 }
 
 ///ACTUALIZAR CHECKPOINT
 if place_meeting(x,y,o_checkpoint) and not checkpoint
 {
 	checkpoint = true;	
+	timecheck = time;
+	audio_play_sound(sfx_checkpoint ,100,false);
 }
 
 ///GANAR
@@ -262,7 +269,22 @@ if(global.win)
 {
 	global.win = false;
 	room_restart();
-	//AGREGAR
+	//AGREGAR?
 }
 
- 
+//TIEMPO
+time =  get_timer()/1000000 - timestore;
+
+if global.invencibilidad
+{	
+	sprite_index = s_ouch;
+	if(idle==1 || Input_right)
+	{
+		image_xscale = 1;
+	}
+	if(idle==0 || Input_left)
+	{
+		image_xscale = -1;
+	}
+}
+

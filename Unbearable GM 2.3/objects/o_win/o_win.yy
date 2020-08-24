@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_plataform4",
-    "path": "sprites/s_plataform4/s_plataform4.yy",
+    "name": "s_end",
+    "path": "sprites/s_end/s_end.yy",
   },
   "solid": false,
   "visible": true,
