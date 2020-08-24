@@ -1,3 +1,5 @@
+global.win = false;
+
 /// Int para el oso
 global.HP = 3;
 vidas = 3;

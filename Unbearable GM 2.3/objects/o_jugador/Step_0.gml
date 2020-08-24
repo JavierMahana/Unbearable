@@ -136,11 +136,14 @@ if(global.atacando)
 		}
 	}	
 	///ROLL
+	
 	if(global.roll)
 	{
 		image_speed = 0.8;
 		contadorAtaque++;
-		x += rollspd;
+		//x += rollspd;
+		
+		x = ManejarColisionesHorizontales(o_tile, rollspd);
 		if(contadorAtaque >= framesRoll)
 		{
 			global.atacando = false;
@@ -216,11 +219,16 @@ if (Input_space && !onGround && !global.atacando)
 
 #endregion
 
+if(not instance_place(x,y,o_enemigos))
+{
+	global.invencibilidad = false;
+}
+
 
 #endregion
 
 ///MORIR
-if (global.HP <= 0 or y > 900) and vidas > 1 
+if (global.HP <= 0 or y > 900) 
 {
     if not checkpoint
 	{
@@ -237,8 +245,9 @@ if (global.HP <= 0 or y > 900) and vidas > 1
 		global.HP = 3;
 	}
 }
-if vidas = 0 
+if (vidas <= 0) 
 {
+	//vidas  =3;
 	room_restart();
 }
 
@@ -249,8 +258,10 @@ if place_meeting(x,y,o_checkpoint) and not checkpoint
 }
 
 ///GANAR
-if(x >= 2800)
+if(global.win)
 {
+	global.win = false;
+	room_restart();
 	//AGREGAR
 }
 

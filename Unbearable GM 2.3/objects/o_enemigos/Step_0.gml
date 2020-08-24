@@ -4,10 +4,12 @@ if (instance_place(x,y,o_jugador) and not global.atacando and not global.invenci
 	global.HP --;
 	global.invencibilidad = true;
 }
+/*
 if(not instance_place(x,y,o_jugador))
 {
 	global.invencibilidad = false;
 }
+*/
 ///Ser atacado por el jugador
 if ManejarAtaques()
 {
