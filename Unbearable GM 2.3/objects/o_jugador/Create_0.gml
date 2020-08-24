@@ -28,6 +28,8 @@ global.roll = false;
 global.melee = false;
 global.ataqueizquierda = false;
 global.ataquederecha = false;
+///miel
+miel = 0;
 ///checkpoints
 checkpoint = false;
 checkpointtime = false;

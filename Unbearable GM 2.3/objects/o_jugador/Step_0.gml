@@ -253,7 +253,6 @@ if (global.HP <= 0 or y > 900)
 if (vidas <= 0) 
 {
 	room_restart();
-	//AGREGAR?
 }
 
 ///ACTUALIZAR CHECKPOINT
@@ -269,7 +268,6 @@ if(global.win)
 {
 	global.win = false;
 	room_restart();
-	//AGREGAR?
 }
 
 //TIEMPO
@@ -287,4 +285,3 @@ if global.invencibilidad
 		image_xscale = -1;
 	}
 }
-

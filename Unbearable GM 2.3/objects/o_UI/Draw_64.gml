@@ -20,3 +20,7 @@ else {draw_text(700,0, o_jugador.time);}
 /// Vidas
 draw_text(600,20,"Vidas");
 draw_text(700,20, o_jugador.vidas);
+
+///Miel
+draw_text(600,40,"Miel");
+draw_text(700,40, string(o_jugador.miel) + "/5");
