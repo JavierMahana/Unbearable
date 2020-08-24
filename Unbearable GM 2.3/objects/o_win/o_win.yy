@@ -4,7 +4,7 @@
     "path": "sprites/s_end/s_end.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
